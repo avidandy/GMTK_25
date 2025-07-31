@@ -38,6 +38,25 @@ value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("1_0bbpv")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="UICanvasLayer/HealthBarContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Health"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 
 [node name="Enemy" parent="." instance=ExtResource("2_0wfyh")]
