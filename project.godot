@@ -14,7 +14,7 @@ config/name="GMTK25"
 config/version="0.0"
 run/main_scene="uid://ca20skrm15yjl"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [display]
 
