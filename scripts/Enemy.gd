@@ -1,10 +1,50 @@
+# scripts/Enemy.gd
 extends CharacterBody2D
 
-@export var speed = 300
-@onready var player = get_parent().get_node("Player")
+@export var speed: float = 100.0 # Base enemy movement speed
+@export var health: int = 10 # Health for each enemy instance
+
+@export_group("Player Aggro Settings")
+@export var aggro_distance: float = 300.0 # Distance at which enemy speeds up towards player
+@export var aggro_speed_multiplier: float = 1.5 # How much faster enemy moves when aggro'd
+
+# Reference to the player node
+var player: Node2D
+
+func _ready():
+	add_to_group("enemies") # Ensure enemy is in "enemies" group
+
+	# Get player reference more robustly by group
+	player = get_tree().get_first_node_in_group("player")
+	if not player:
+		print("Enemy: Player node not found.")
+		# Consider stopping or queue_free() if player is essential
+
 
 func _physics_process(delta: float) -> void:
-	if player:
-		var direction = (player.global_position - global_position).normalized()
-		velocity = direction * speed
+	if not player or not is_instance_valid(player):
+		velocity = Vector2.ZERO
 		move_and_slide()
+		return
+
+	var target_direction = (player.global_position - global_position).normalized()
+	var current_speed = speed
+
+	# --- Player Aggro Speed-Up ---
+	if global_position.distance_to(player.global_position) < aggro_distance:
+		current_speed *= aggro_speed_multiplier
+	# -----------------------------
+
+	# Combine movement and avoidance
+	# The avoidance_vector is added. You might want to weigh it differently
+	# or use a blend, depending on how strong you want avoidance to be.
+	var final_direction = (target_direction).normalized()
+
+	velocity = final_direction * current_speed
+	move_and_slide()
+
+func take_damage(amount: int):
+	health -= amount
+	# You can add visual feedback for damage here (e.g., flash red)
+	if health <= 0:
+		queue_free() # Remove the enemy when it runs out of health
