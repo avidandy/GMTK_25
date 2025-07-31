@@ -7,9 +7,10 @@
 size = Vector2(124, 123)
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.45, 0.45)
 script = ExtResource("1_55jtl")
 aggro_distance = 600.0
+player_stop_distance = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.1, 1.1)

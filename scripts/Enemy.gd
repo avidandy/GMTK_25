@@ -8,6 +8,9 @@ extends CharacterBody2D
 @export var aggro_distance: float = 300.0 # Distance at which enemy speeds up towards player
 @export var aggro_speed_multiplier: float = 1.5 # How much faster enemy moves when aggro'd
 
+@export_group("Player Stop Zone Settings")
+@export var player_stop_distance: float = 75.0 # The distance from player to stop moving (should be radius of player's AttackStopArea)
+
 # Reference to the player node
 var player: Node2D
 
@@ -27,6 +30,15 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
+	var distance_to_player = global_position.distance_to(player.global_position)
+
+	# --- Player Stop Zone Logic ---
+	if distance_to_player < player_stop_distance:
+		velocity = Vector2.ZERO # Stop moving when within the attack zone
+		# You can trigger melee attack logic here for the enemy
+		return # Exit early, no need for further movement calculations
+	# -----------------------------
+	
 	var target_direction = (player.global_position - global_position).normalized()
 	var current_speed = speed
 
