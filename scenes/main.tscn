@@ -1,9 +1,3 @@
 [gd_scene format=3 uid="uid://ca20skrm15yjl"]
 
 [node name="Main" type="Node2D"]
-
-[node name="TextEdit" type="TextEdit" parent="."]
-offset_right = 1149.0
-offset_bottom = 642.0
-theme_override_font_sizes/font_size = 200
-text = "YOU SUCK"
