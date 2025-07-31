@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://5pb50itsa4y3" path="res://scenes/Player.tscn" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://7nm2lw05hq6o" path="res://scenes/Enemy.tscn" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://onaxruwxe5um" path="res://scripts/Spawner.gd" id="3_rarhs"]
 
 [node name="Main" type="Node2D"]
 
@@ -59,5 +60,11 @@ vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 
-[node name="Enemy" parent="." instance=ExtResource("2_0wfyh")]
-position = Vector2(601, 325)
+[node name="Spawner" type="Node2D" parent="."]
+script = ExtResource("3_rarhs")
+enemy_scene = ExtResource("2_0wfyh")
+spawn_interval = 0.5
+spawn_radius = 1500.0
+
+
+[connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
