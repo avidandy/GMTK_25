@@ -1,9 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca20skrm15yjl"]
+[gd_scene load_steps=4 format=3 uid="uid://fv2hn6sjj6po"]
 
+[ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="1_0bbpv"]
 [ext_resource type="PackedScene" uid="uid://5pb50itsa4y3" path="res://scenes/Player.tscn" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://7nm2lw05hq6o" path="res://scenes/Enemy.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" path="res://scenes/Enemy.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node2D"]
+
+[node name="UICanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBarContainer" type="Control" parent="UICanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+pivot_offset = Vector2(20, 20)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PlayerHealthBar" type="TextureProgressBar" parent="UICanvasLayer/HealthBarContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -370.0
+offset_top = -20.0
+offset_right = 370.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(370, 0)
+value = 100.0
+nine_patch_stretch = true
+texture_progress = ExtResource("1_0bbpv")
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 
