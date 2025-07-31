@@ -1,7 +1,7 @@
 # scripts/Spawner.gd
 extends Node2D
 
-@export var enemy_scene: PackedScene # Assign your Enemy.tscn here in the Inspector
+@export var enemy_scene: PackedScene
 @export var spawn_interval: float = 1.0 # Time between individual enemy spawns
 @export var spawn_radius: float = 800.0 # Distance from player to spawn enemies (off-screen)
 @export var max_enemies_on_screen: int = 50 # Limit concurrent enemies
