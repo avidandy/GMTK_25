@@ -1,6 +1,12 @@
 # scripts/Player.gd
 extends CharacterBody2D
 
+@onready var animsprite: AnimatedSprite2D = $AnimatedSprite2D
+
+@export var friction: int = 8
+@export var accel: int = 5
+var lastDir: String
+
 @export var speed = 400
 @export var max_health: int = 100 # Add max health variable
 
@@ -23,8 +29,39 @@ func get_input():
 	velocity = input_direction * speed
 
 func _physics_process(delta):
-	get_input()
-	move_and_collide(velocity * delta)
+	var input = Vector2(
+		Input.get_action_strength("right") - Input.get_action_strength("left"),
+		Input.get_action_strength("down") - Input.get_action_strength("up")
+	).normalized()
+	
+	if input:
+		update_animation(input)
+		animsprite.speed_scale = (velocity/speed).distance_to(Vector2.ZERO) + 0.5
+	else:
+		animsprite.play("idle_" + lastDir)
+		animsprite.speed_scale = 0.7
+	
+	
+	var lerp_weight = delta * (accel if input else friction)
+	velocity = lerp(velocity, input * speed, lerp_weight)
+	
+	move_and_slide()
+	
+func update_animation(direction: Vector2):
+	if abs(direction.x) > abs(direction.y):
+		if  direction.x > 0:
+			animsprite.play("move_right")
+			lastDir = "right"
+		else:
+			animsprite.play("move_left")
+			lastDir = "left"
+	else:
+		if direction.y > 0:
+			animsprite.play("move_front")
+			lastDir = "front"
+		else:
+			animsprite.play("move_back")
+			lastDir = "back"
 
 func take_damage(amount: int):
 	current_health -= amount

@@ -17,6 +17,7 @@ script = ExtResource("1_v6fml")
 speed = 200
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(1.5, 1.5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_qu4a1")
