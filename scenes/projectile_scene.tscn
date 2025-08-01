@@ -1,11 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://38kd01ktlmub"]
+[gd_scene load_steps=8 format=3 uid="uid://38kd01ktlmub"]
 
 [ext_resource type="Script" uid="uid://c1djg2ga6m33h" path="res://scripts/Projectile.gd" id="1_xymdh"]
-[ext_resource type="Texture2D" uid="uid://bxxov8kbjlkh" path="res://assets/icon.svg" id="1_ym46q"]
+[ext_resource type="Texture2D" uid="uid://c7o5dfsxolboo" path="res://assets/spells/fireball/FB001.png" id="2_l7oay"]
+[ext_resource type="Texture2D" uid="uid://djqacipukqrgg" path="res://assets/spells/fireball/FB002.png" id="3_7ksyb"]
+[ext_resource type="Texture2D" uid="uid://dy6tw45jxfy51" path="res://assets/spells/fireball/FB003.png" id="4_2awth"]
+[ext_resource type="Texture2D" uid="uid://6sxfvm5unuiy" path="res://assets/spells/fireball/FB004.png" id="5_j4mmg"]
+[ext_resource type="Texture2D" uid="uid://6080ij4a775x" path="res://assets/spells/fireball/FB005.png" id="6_tbq2j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moyuw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_l7oay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7ksyb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2awth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_j4mmg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tbq2j")
+}],
+"loop": true,
+"name": &"fireball",
+"speed": 8.0
+}]
 
 [node name="Projectile_Scene" type="Node2D"]
 script = ExtResource("1_xymdh")
+speed = 500.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.517647, 1, 1)
-texture = ExtResource("1_ym46q")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_moyuw")
+animation = &"fireball"
+autoplay = "fireball"
+frame_progress = 0.750169
