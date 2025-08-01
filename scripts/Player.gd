@@ -24,7 +24,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	move_and_slide()
+	move_and_collide(velocity * delta)
 
 func take_damage(amount: int):
 	current_health -= amount

@@ -35,7 +35,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if not player or not is_instance_valid(player):
 		velocity = Vector2.ZERO
-		move_and_slide()
+		move_and_collide(velocity * delta)
 		# Stop attack timer if player is gone
 		if attack_timer.is_started():
 			attack_timer.stop()
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO # Stop moving when within the attack zone
 		if attack_timer.is_stopped(): # Start timer only if it's not already running
 			attack_timer.start()
-		move_and_slide() # Ensure it handles collisions even when stopped
+		move_and_collide(velocity * delta) # Ensure it handles collisions even when stopped
 		return # Exit early, no need for further movement calculations
 	else: # If enemy is outside the stop zone
 		if not attack_timer.is_stopped(): # Stop timer if enemy leaves the zone
