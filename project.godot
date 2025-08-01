@@ -16,6 +16,10 @@ run/main_scene="uid://deq7ih2we7etp"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/icon.svg"
 
+[autoload]
+
+ScoreController="*res://scripts/ScoreController.gd"
+
 [display]
 
 window/size/viewport_width=1920
