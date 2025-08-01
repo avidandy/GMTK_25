@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FireballAbility" load_steps=3 format=3 uid="uid://c5nqqn58wk8f4"]
+
+[ext_resource type="Script" uid="uid://boot4gl4t6wu3" path="res://scripts/FireballAbility.gd" id="1_f0xpa"]
+[ext_resource type="PackedScene" uid="uid://38kd01ktlmub" path="res://scenes/projectile_scene.tscn" id="1_qrt21"]
+
+[resource]
+script = ExtResource("1_f0xpa")
+projectile_scene = ExtResource("1_qrt21")
+name = ""
+cooldown = 1.0
+level = 1
