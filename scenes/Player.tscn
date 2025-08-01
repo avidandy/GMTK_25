@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bxxov8kbjlkh" path="res://assets/icon.svg" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://dd7gnn4obi0do" path="res://scripts/Player.gd" id="1_v6fml"]
 [ext_resource type="Script" uid="uid://bqw8nkrks4esn" path="res://scripts/PlayerAbilityManager.gd" id="3_3li8b"]
-[ext_resource type="Script" uid="uid://cq7spatmenf3g" path="res://scripts/Ability.gd" id="4_qu4a1"]
+[ext_resource type="Script" path="res://scripts/Ability.gd" id="4_qu4a1"]
 [ext_resource type="Resource" uid="uid://c5nqqn58wk8f4" path="res://resources/fireball_ability.tres" id="5_70d11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
