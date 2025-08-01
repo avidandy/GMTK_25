@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector2.ZERO
 		move_and_collide(velocity * delta)
 		# Stop attack timer if player is gone
-		if attack_timer.is_started():
+		if not attack_timer.is_stopped():
 			attack_timer.stop()
 		return
 
