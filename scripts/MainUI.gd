@@ -2,7 +2,7 @@
 extends CanvasLayer
 
 @onready var player_health_bar = $HealthBarContainer/PlayerHealthBar
-@onready var health_label = $HealthBarContainer/RichTextLabel # If you want to show HP numbers
+@onready var health_label = $HealthBarContainer/HealthLabel # If you want to show HP numbers
 
 func _ready():
 	var player_node = get_tree().get_first_node_in_group("player")
