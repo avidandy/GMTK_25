@@ -5,7 +5,6 @@ extends Node
 var cooldowns: Dictionary = {}
 
 func _process(delta: float) -> void:
-	print ("processing")
 	for current_ability: Ability in abilities:
 		if not cooldowns.has(current_ability):
 			cooldowns[current_ability] = 0.0
