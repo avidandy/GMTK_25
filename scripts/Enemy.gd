@@ -25,6 +25,9 @@ var direction:= Vector2.ZERO
 @export var bobbing_s: float = 3
 var bobbing_t:= 0.0
 
+var is_hit := false
+var hit_freeze_duration := 0.15
+
 # Reference to the player node
 var player: Node2D
 
@@ -41,13 +44,15 @@ func _ready():
 	attack_timer.wait_time = attack_interval
 
 func _physics_process(delta: float) -> void:
+	if is_hit:
+		return
+	
 	if velocity.length() > 0.1:
 		sprite.rotation = velocity.angle()
 		bobbing_t += delta
 		var offset_y = sin(bobbing_t * bobbing_s) * bobbing_h
 		sprite.position.y = offset_y
-	
-	
+		
 	if not player or not is_instance_valid(player):
 		velocity = Vector2.ZERO
 		move_and_collide(velocity * delta)
@@ -87,7 +92,15 @@ func _physics_process(delta: float) -> void:
 	move_and_collide(velocity * delta)
 
 func take_damage(amount: int):
+	if is_hit: return
+
 	health -= amount
+	is_hit = true
+	sprite.modulate = Color(1.0, 0.4, 0.4)
+	
+	await get_tree().create_timer(hit_freeze_duration).timeout
+	sprite.modulate = Color(1, 1, 1, 1)
+	is_hit = false
 	# You can add visual feedback for damage here (e.g., flash red)
 	if health <= 0:
 		queue_free() # Remove the enemy when it runs out of health
