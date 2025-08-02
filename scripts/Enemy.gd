@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 	var final_direction = (target_direction).normalized()
 
 	velocity = final_direction * current_speed
-	move_and_slide()
+	move_and_collide(velocity * delta)
 
 func take_damage(amount: int):
 	health -= amount

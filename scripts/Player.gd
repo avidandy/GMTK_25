@@ -46,7 +46,7 @@ func _physics_process(delta):
 	var lerp_weight = delta * (accel if input else friction)
 	velocity = lerp(velocity, input * speed, lerp_weight)
 	
-	move_and_slide()
+	move_and_collide(velocity * delta)
 	
 func update_animation(direction: Vector2):
 	if abs(direction.x) > abs(direction.y):
