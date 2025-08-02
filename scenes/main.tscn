@@ -1,14 +1,20 @@
-[gd_scene load_steps=19 format=4 uid="uid://deq7ih2we7etp"]
+[gd_scene load_steps=22 format=4 uid="uid://deq7ih2we7etp"]
 
 [ext_resource type="Script" uid="uid://bh4282gc2h8gg" path="res://scripts/MainUI.gd" id="1_x6egr"]
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="2_gsq8s"]
 [ext_resource type="Script" uid="uid://c2qqnlarhvvlp" path="res://scripts/ScoreLabel.gd" id="3_ivtf8"]
 [ext_resource type="PackedScene" uid="uid://5pb50itsa4y3" path="res://scenes/Player.tscn" id="4_iunyg"]
+[ext_resource type="Script" uid="uid://f40x85547uc7" path="res://scripts/AbilityUI.gd" id="5_choun"]
 [ext_resource type="Script" uid="uid://onaxruwxe5um" path="res://scripts/Spawner.gd" id="5_yahr5"]
 [ext_resource type="PackedScene" uid="uid://dinkb188g73ol" path="res://scenes/Enemy.tscn" id="6_25hhn"]
+[ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="6_ya4ey"]
 [ext_resource type="Script" uid="uid://bjp65p3yoyjft" path="res://scripts/ScoreController.gd" id="7_jbhub"]
 [ext_resource type="TileSet" uid="uid://cix3ph2khsid7" path="res://assets/env/env_tilset.tres" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://cplubwfj1ah2d" path="res://assets/underground/[UPDATE_3] Contents/Stone Brazier/StoneBrazier_A.png" id="9_85g3d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
+atlas = ExtResource("6_ya4ey")
+region = Rect2(144, 688, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
 atlas = ExtResource("9_85g3d")
@@ -153,6 +159,18 @@ theme_override_font_sizes/normal_font_size = 10
 text = "Score"
 horizontal_alignment = 1
 script = ExtResource("3_ivtf8")
+
+[node name="TextureRect" type="TextureRect" parent="UICanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_choun")
+ability_atlas = SubResource("AtlasTexture_dp3eg")
+ability_regions = {
+0: Rect2(64, 688, 16, 16),
+1: Rect2(80, 688, 16, 16),
+2: Rect2(144, 688, 16, 16),
+4: Rect2(4, 4, 16, 16)
+}
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("5_yahr5")

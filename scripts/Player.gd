@@ -10,6 +10,8 @@ var lastDir: String = "front"
 @export var speed = 400
 @export var max_health: int = 100 # Add max health variable
 
+@onready var ability_ui = $"../UICanvasLayer/TextureRect"
+
 var current_health: int = max_health: # Current health variable
 	set(value):
 		current_health = clampi(value, 0, max_health) # Clamp health between 0 and max_health
@@ -77,3 +79,7 @@ func die():
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+		
+	if event.is_action_pressed("ui_page_up"):
+		var random = ability_ui.ability_regions.keys().pick_random()
+		$"../UICanvasLayer/TextureRect".set_ability_type(random)
