@@ -1,28 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://dinkb188g73ol"]
 
-[ext_resource type="Texture2D" uid="uid://bxxov8kbjlkh" path="res://assets/icon.svg" id="1_3gvst"]
 [ext_resource type="Script" uid="uid://boai2ycf1i8hx" path="res://scripts/Enemy.gd" id="1_55jtl"]
+[ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="2_55jtl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
-size = Vector2(124, 123)
 
 [node name="Enemy" type="CharacterBody2D"]
-scale = Vector2(0.45, 0.45)
 collision_layer = 4
 script = ExtResource("1_55jtl")
-aggro_distance = 250.0
-aggro_speed_multiplier = 1.25
-player_stop_distance = 150.0
+speed = 25.0
+aggro_distance = 100.0
+player_stop_distance = 25.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_55jtl")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.270588, 0.282353, 1)
-texture = ExtResource("1_3gvst")
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_55jtl")
+region_enabled = true
+region_rect = Rect2(176, 496, 16, 16)
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]

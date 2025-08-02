@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cix3ph2khsid7"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://cix3ph2khsid7"]
 
 [ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="1_20djb"]
 [ext_resource type="Texture2D" uid="uid://dgevomrpaxb1" path="res://assets/env/Tileset.png" id="1_yq5dm"]
