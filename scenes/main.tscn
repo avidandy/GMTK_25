@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bh4282gc2h8gg" path="res://scripts/MainUI.gd" id="1_x6egr"]
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="2_gsq8s"]
-[ext_resource type="Script" uid="uid://c2qqnlarhvvlp" path="res://scenes/ScoreLabel.gd" id="3_ivtf8"]
+[ext_resource type="Script" uid="uid://c2qqnlarhvvlp" path="res://scripts/ScoreLabel.gd" id="3_ivtf8"]
 [ext_resource type="PackedScene" uid="uid://5pb50itsa4y3" path="res://scenes/Player.tscn" id="4_iunyg"]
 [ext_resource type="Script" uid="uid://onaxruwxe5um" path="res://scripts/Spawner.gd" id="5_yahr5"]
 [ext_resource type="PackedScene" uid="uid://dinkb188g73ol" path="res://scenes/Enemy.tscn" id="6_25hhn"]

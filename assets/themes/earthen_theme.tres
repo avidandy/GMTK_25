@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://chesfyuq23agl"]
+
+[ext_resource type="FontFile" uid="uid://c8n5pnyptug83" path="res://assets/fonts/PeaberryBase.ttf" id="5_2qpco"]
+
+[resource]
+default_font = ExtResource("5_2qpco")

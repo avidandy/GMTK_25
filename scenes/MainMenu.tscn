@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://33b08le033vl"]
+
+[ext_resource type="Theme" uid="uid://chesfyuq23agl" path="res://assets/themes/earthen_theme.tres" id="1_2wh52"]
+[ext_resource type="Script" uid="uid://1y7o4jqhl1ft" path="res://scripts/MainMenu.gd" id="1_yqorp"]
+[ext_resource type="FontFile" uid="uid://c8n5pnyptug83" path="res://assets/fonts/PeaberryBase.ttf" id="3_ow34m"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2wh52")
+script = ExtResource("1_yqorp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ow34m")
+theme_override_font_sizes/font_size = 32
+text = "Holy Moley"
+
+[node name="PlayButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
