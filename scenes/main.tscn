@@ -157,8 +157,7 @@ script = ExtResource("3_ivtf8")
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("5_yahr5")
 enemy_scene = ExtResource("6_25hhn")
-spawn_interval = 0.5
-spawn_radius = 750.0
+spawn_radius = 400.0
 max_enemies_on_screen = 1000
 
 [node name="SpawnTimer" type="Timer" parent="Spawner"]
