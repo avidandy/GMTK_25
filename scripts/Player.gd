@@ -73,3 +73,7 @@ func die():
 	print("Player died! Game Over.")
 	# Handle game over logic here (e.g., show game over screen, restart level)
 	queue_free() # Remove player node
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().quit()

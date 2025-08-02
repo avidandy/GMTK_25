@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var speed: float = 100.0 # Base enemy movement speed
 @export var health: int = 10 # Health for each enemy instance
 
+
 @export_group("Player Aggro Settings")
 @export var aggro_distance: float = 300.0 # Distance at which enemy speeds up towards player
 @export var aggro_speed_multiplier: float = 1.5 # How much faster enemy moves when aggro'd
@@ -16,6 +17,13 @@ extends CharacterBody2D
 @export var attack_interval: float = 0.5 # Time between attacks in seconds
 
 @onready var attack_timer = $AttackTimer # Reference to the AttackTimer node
+
+@onready var sprite :=$Sprite2D
+var direction:= Vector2.ZERO
+
+@export var bobbing_h: float = 5
+@export var bobbing_s: float = 3
+var bobbing_t:= 0.0
 
 # Reference to the player node
 var player: Node2D
@@ -33,6 +41,13 @@ func _ready():
 	attack_timer.wait_time = attack_interval
 
 func _physics_process(delta: float) -> void:
+	if velocity.length() > 0.1:
+		sprite.rotation = velocity.angle()
+		bobbing_t += delta
+		var offset_y = sin(bobbing_t * bobbing_s) * bobbing_h
+		sprite.position.y = offset_y
+	
+	
 	if not player or not is_instance_valid(player):
 		velocity = Vector2.ZERO
 		move_and_collide(velocity * delta)

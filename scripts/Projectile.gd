@@ -7,6 +7,8 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	global_position += direction.normalized() * speed * delta
+	position += direction * delta
+	rotation = direction.angle()
 
 # New function to handle collision with another body
 func _on_Hitbox_body_entered(body: Node2D):

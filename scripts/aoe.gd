@@ -10,7 +10,6 @@ func _process(delta):
 	#owner.get_parent().add_child(self)
 
 func aoespell():
-	print("aoe")
 	var target_scale = Vector2(5, 5)
 	var duration = 2
 	
