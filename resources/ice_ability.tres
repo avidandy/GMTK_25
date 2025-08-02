@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="IceAbility" load_steps=3 format=3 uid="uid://dh0tfsu4exwqt"]
+
+[ext_resource type="PackedScene" uid="uid://bfcbo3fu7ivv6" path="res://scenes/aoe_scene.tscn" id="1_kjj68"]
+[ext_resource type="Script" uid="uid://wut2hk8lb8gv" path="res://scripts/IceAbility.gd" id="1_pvy46"]
+
+[resource]
+script = ExtResource("1_pvy46")
+aoe_scene = ExtResource("1_kjj68")
+name = ""
+cooldown = 5.0
+level = 1
+metadata/_custom_type_script = "uid://wut2hk8lb8gv"

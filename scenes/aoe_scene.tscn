@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfcbo3fu7ivv6"]
+
+[ext_resource type="Script" uid="uid://c85nfmt6sbdmo" path="res://scripts/aoe.gd" id="1_ieuwj"]
+[ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="2_jlujt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bss76"]
+atlas = ExtResource("2_jlujt")
+region = Rect2(128, 672, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moyuw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bss76")
+}],
+"loop": true,
+"name": &"AOE",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ieuwj"]
+radius = 9.0
+
+[node name="Aoe_Scene" type="Node2D"]
+script = ExtResource("1_ieuwj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+scale = Vector2(1e-05, 1e-05)
+sprite_frames = SubResource("SpriteFrames_moyuw")
+animation = &"AOE"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+shape = SubResource("CircleShape2D_ieuwj")
