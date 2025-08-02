@@ -10,7 +10,6 @@ scale = Vector2(-1, -1)
 collision_layer = 4
 script = ExtResource("1_55jtl")
 speed = 25.0
-health = 2
 aggro_distance = 100.0
 player_stop_distance = 25.0
 
