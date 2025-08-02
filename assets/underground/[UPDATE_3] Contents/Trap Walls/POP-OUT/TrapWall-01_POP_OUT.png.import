@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bbbgtkrn286bi"
+path="res://.godot/imported/TrapWall-01_POP_OUT.png-d3df20ef99d40b70862b37de28b6faa0.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/underground/[UPDATE_3] Contents/Trap Walls/POP-OUT/TrapWall-01_POP_OUT.png"
+dest_files=["res://.godot/imported/TrapWall-01_POP_OUT.png-d3df20ef99d40b70862b37de28b6faa0.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1
