@@ -2,7 +2,7 @@ extends Ability
 class_name IceAbility
 
 @export var aoe_scene: PackedScene
-@onready var player = get_node("Player")
+#@onready var player = get_node("Player")
 
 func activate(owner: Node2D):
 	var aoe = aoe_scene.instantiate()

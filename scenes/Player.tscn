@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://5pb50itsa4y3"]
+[gd_scene load_steps=9 format=3 uid="uid://5pb50itsa4y3"]
 
 [ext_resource type="Script" uid="uid://dd7gnn4obi0do" path="res://scripts/Player.gd" id="1_v6fml"]
 [ext_resource type="SpriteFrames" uid="uid://b6k27ng0hxp7c" path="res://assets/mole/Idle/Player_idle_anim.tres" id="2_qu4a1"]
 [ext_resource type="Script" uid="uid://bqw8nkrks4esn" path="res://scripts/PlayerAbilityManager.gd" id="3_3li8b"]
+[ext_resource type="Script" uid="uid://cq7spatmenf3g" path="res://scripts/Ability.gd" id="4_70d11"]
+[ext_resource type="Resource" uid="uid://c5nqqn58wk8f4" path="res://resources/fireball_ability.tres" id="5_cw2d6"]
+[ext_resource type="Resource" uid="uid://dh0tfsu4exwqt" path="res://resources/ice_ability.tres" id="6_khinc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
 size = Vector2(30, 30)
@@ -31,3 +34,4 @@ shape = SubResource("CircleShape2D_v6fml")
 
 [node name="PlayerAbilityManager" type="Node" parent="."]
 script = ExtResource("3_3li8b")
+abilities = Array[ExtResource("4_70d11")]([ExtResource("5_cw2d6"), ExtResource("6_khinc")])
