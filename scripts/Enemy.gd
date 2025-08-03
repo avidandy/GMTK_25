@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var speed: float = 100.0 # Base enemy movement speed
 @export var health: int = 10 # Health for each enemy instance
+@export var score: int = 10 # Amount rewarded on enemy death
 
 
 @export_group("Player Aggro Settings")
@@ -103,6 +104,7 @@ func take_damage(amount: int):
 	is_hit = false
 	# You can add visual feedback for damage here (e.g., flash red)
 	if health <= 0:
+		ScoreController.increase_score(score)
 		queue_free() # Remove the enemy when it runs out of health
 
 # --- Attack Timer Signal ---
