@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_f0xpa")
 projectile_scene = ExtResource("1_qrt21")
-name = null
+name = ""
 cooldown = 1.0
-p_level = null
-a_level = null
-damage = null
+p_level = 1
+a_level = 1
+damage = 10
