@@ -6,6 +6,7 @@ class_name Ability
 @export var cooldown: float
 @export var p_level: int = 1
 @export var a_level: int = 1
+@export var fs_level: int = 0
 @export var damage: int = 10
 
 
