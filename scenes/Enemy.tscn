@@ -9,7 +9,6 @@
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(-1, -1)
 collision_layer = 4
-collision_mask = 5
 slide_on_ceiling = false
 script = ExtResource("1_55jtl")
 speed = 25.0
