@@ -1,10 +1,14 @@
 extends Node
 
 @export var abilities: Array[Ability] = [] #all abilities go here
+@onready var player: = $".."
 
 var cooldowns: Dictionary = {}
 
 func _process(delta: float) -> void:
+	if player.block_input:
+		return
+	
 	for current_ability: Ability in abilities:
 		if not cooldowns.has(current_ability):
 			cooldowns[current_ability] = 0.0

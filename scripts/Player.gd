@@ -11,6 +11,7 @@ var lastDir: String = "front"
 @export var max_health: int = 100 # Add max health variable
 
 @onready var ability_ui = $"../UICanvasLayer/TextureRect"
+var block_input: = true
 
 var current_health: int = max_health: # Current health variable
 	set(value):
@@ -23,14 +24,33 @@ var current_health: int = max_health: # Current health variable
 signal health_changed(current_health_val, max_health_val)
 
 func _ready():
+	animsprite.visible = false
 	add_to_group("player") # Add player to a group for easy lookup by enemies/spawner
 	health_changed.emit(current_health, max_health) # Emit initial health state for UI
+	animsprite.animation_finished.connect(intro_over)
+	intro_anim()
+
+func intro_anim():
+	animsprite.offset.y = -13.8
+	await get_tree().create_timer(.2).timeout
+	animsprite.visible = true
+	animsprite.play("intro")
+
+func intro_over():
+	animsprite.offset.y = 0
+	block_input = false
 
 func get_input():
+	if block_input:
+		return
+		
 	var input_direction = Input.get_vector("left", "right", "up", "down")
 	velocity = input_direction * speed
 
 func _physics_process(delta):
+	if block_input:
+		return
+	
 	var input = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
 		Input.get_action_strength("down") - Input.get_action_strength("up")

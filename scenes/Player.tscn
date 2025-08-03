@@ -22,7 +22,6 @@ speed = 200
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_qu4a1")
 animation = &"intro"
-frame_progress = 0.604426
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -37,3 +36,5 @@ shape = SubResource("CircleShape2D_v6fml")
 [node name="PlayerAbilityManager" type="Node" parent="."]
 script = ExtResource("3_3li8b")
 abilities = Array[ExtResource("4_70d11")]([ExtResource("5_cw2d6"), ExtResource("6_khinc")])
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
