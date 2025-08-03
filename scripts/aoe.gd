@@ -31,7 +31,6 @@ func aoespell():
 # New function to handle collision with another body
 func _on_Hitbox_body_entered(body: Node2D):
 	# Check if the body that entered is an enemy
-	print("Entered")
 	if body.is_in_group("enemies") and body.has_method("take_damage"):
 		enimies.append(body)
 		#print("AOE hit enemy! Dealt ", damage_amount, " damage.") # For debugging
