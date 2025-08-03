@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export var health: int = 10 # Health for each enemy instance
 @export var score: int = 10 # Amount rewarded on enemy death
 
-
 @export_group("Player Aggro Settings")
 @export var aggro_distance: float = 300.0 # Distance at which enemy speeds up towards player
 @export var aggro_speed_multiplier: float = 1.5 # How much faster enemy moves when aggro'd
@@ -16,6 +15,10 @@ extends CharacterBody2D
 @export_group("Attack Settings") # New group for attack settings
 @export var attack_damage: int = 5 # Damage dealt to player per hit
 @export var attack_interval: float = 0.5 # Time between attacks in seconds
+
+@export_group("Avoidance Settings") # New group for avoidance settings
+@export var avoidance_radius: float = 50.0 # How close other enemies need to be to trigger avoidance
+@export var avoidance_strength: float = 0.3 # How strongly this enemy repels others (0.0 to 1.0, 0.3 for weak force)
 
 @onready var attack_timer = $AttackTimer # Reference to the AttackTimer node
 
@@ -79,15 +82,32 @@ func _physics_process(delta: float) -> void:
 	var target_direction = (player.global_position - global_position).normalized()
 	var current_speed = speed
 
+	# --- Avoidance Logic ---
+	var avoidance_vector = Vector2.ZERO
+	var all_enemies = get_tree().get_nodes_in_group("enemies")
+	for other_enemy in all_enemies:
+		if other_enemy == self or not is_instance_valid(other_enemy):
+			continue
+
+		var distance = global_position.distance_to(other_enemy.global_position)
+		if distance > 0 and distance < avoidance_radius:
+			# Calculate vector pointing away from other enemy
+			var direction_away = (global_position - other_enemy.global_position).normalized()
+			# Add to avoidance_vector, stronger repulsion for closer enemies
+			avoidance_vector += direction_away * (1.0 - (distance / avoidance_radius))
+	
+	# Normalize avoidance_vector to prevent over-strong repulsion from many enemies
+	if avoidance_vector.length() > 0:
+		avoidance_vector = avoidance_vector.normalized() * avoidance_strength
+
+	# Combine movement towards player and avoidance
+	# The avoidance_vector is added as a weak force to the movement towards the player.
+	var final_direction = (target_direction + avoidance_vector).normalized()
+
 	# --- Player Aggro Speed-Up ---
 	if global_position.distance_to(player.global_position) < aggro_distance:
 		current_speed *= aggro_speed_multiplier
 	# -----------------------------
-
-	# Combine movement and avoidance
-	# The avoidance_vector is added. You might want to weigh it differently
-	# or use a blend, depending on how strong you want avoidance to be.
-	var final_direction = (target_direction).normalized()
 
 	velocity = final_direction * current_speed
 	move_and_collide(velocity * delta)
