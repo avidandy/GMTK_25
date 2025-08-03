@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=4 uid="uid://deq7ih2we7etp"]
+[gd_scene load_steps=25 format=4 uid="uid://deq7ih2we7etp"]
 
 [ext_resource type="Script" uid="uid://bh4282gc2h8gg" path="res://scripts/MainUI.gd" id="1_x6egr"]
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="2_gsq8s"]
+[ext_resource type="Theme" uid="uid://chesfyuq23agl" path="res://assets/themes/earthen_theme.tres" id="3_eb6dy"]
 [ext_resource type="Script" uid="uid://c2qqnlarhvvlp" path="res://scripts/ScoreLabel.gd" id="3_ivtf8"]
 [ext_resource type="PackedScene" uid="uid://5pb50itsa4y3" path="res://scenes/Player.tscn" id="4_iunyg"]
 [ext_resource type="Script" uid="uid://f40x85547uc7" path="res://scripts/AbilityUI.gd" id="5_choun"]
@@ -105,6 +106,7 @@ grow_horizontal = 2
 pivot_offset = Vector2(20, 20)
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("3_eb6dy")
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UICanvasLayer/HealthBarContainer"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -147,6 +149,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
+theme = ExtResource("3_eb6dy")
 
 [node name="ScoreLabel" type="RichTextLabel" parent="UICanvasLayer/ScoreContainer"]
 layout_mode = 1
