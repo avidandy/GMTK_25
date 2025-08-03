@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FirestormAbility" load_steps=3 format=3 uid="uid://ce0aylc1srnto"]
 
-[ext_resource type="Script" uid="uid://w4cmj22pp2rb" path="res://scripts/FirestormAbility.gd" id="1_0aw8k"]
+[ext_resource type="Script" path="res://scripts/FirestormAbility.gd" id="1_0aw8k"]
 [ext_resource type="PackedScene" uid="uid://bo1eneanrpj6b" path="res://scenes/fire_storm_scene.tscn" id="1_pt4ke"]
 
 [resource]
