@@ -3,15 +3,14 @@ class_name FireballAbility
 
 @export var projectile_scene: PackedScene
 
-
-
-
 func activate(owner: Node2D):
 	if p_level > 0:
 		var projectile1 = projectile_scene.instantiate()
+		var audio = play_audio(projectile1)
 		projectile1.global_position = owner.global_position
 		projectile1.direction = Vector2.UP
 		owner.get_parent().add_child(projectile1)
+		audio.play()
 	if p_level > 1:
 		var projectile2 = projectile_scene.instantiate()
 		projectile2.global_position = owner.global_position
@@ -51,3 +50,13 @@ func activate(owner: Node2D):
 #This is a specific instance of an ability that then overrides the empty one in ability.
 #This file is put on to a 'resource' which then allows you to set the stats which are available due to being extended at the start
 # of this script.
+
+func play_audio(scene):
+	var audio = scene.get_node("AudioStreamPlayer")
+	var stream = load("res://assets/sounds/fireball.wav")
+	if stream == null:
+		print("Audio not found")
+	else:
+		audio.stream = stream
+	
+	return audio

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bqw8nkrks4esn" path="res://scripts/PlayerAbilityManager.gd" id="3_3li8b"]
 [ext_resource type="Script" uid="uid://cq7spatmenf3g" path="res://scripts/Ability.gd" id="4_70d11"]
 [ext_resource type="Resource" uid="uid://c5nqqn58wk8f4" path="res://resources/fireball_ability.tres" id="5_cw2d6"]
-[ext_resource type="Resource" path="res://resources/ice_ability.tres" id="6_khinc"]
+[ext_resource type="Resource" uid="uid://dh0tfsu4exwqt" path="res://resources/ice_ability.tres" id="6_khinc"]
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="7_cw2d6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]

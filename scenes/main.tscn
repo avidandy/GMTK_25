@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="13_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://bvr3hkr8xhyti" path="res://assets/sounds/JDSherbert - Ambiences Music Pack - Bloodrat Sewers.mp3" id="13_trceg"]
 [ext_resource type="Script" uid="uid://byphw7fxtfc5g" path="res://scenes/flame_light.gd" id="14_jkv2x"]
-[ext_resource type="PackedScene" uid="uid://bnxnvvpocmjnp" path="res://scenes/pickup.tscn" id="17_muem4"]
+[ext_resource type="PackedScene" path="res://scenes/pickup.tscn" id="17_muem4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
 atlas = ExtResource("6_ya4ey")

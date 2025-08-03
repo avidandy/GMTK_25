@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://38kd01ktlmub"]
+[gd_scene load_steps=9 format=3 uid="uid://38kd01ktlmub"]
 
 [ext_resource type="Script" uid="uid://c1djg2ga6m33h" path="res://scripts/Projectile.gd" id="1_xymdh"]
 [ext_resource type="Texture2D" uid="uid://c7o5dfsxolboo" path="res://assets/spells/fireball/FB001.png" id="2_l7oay"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://dy6tw45jxfy51" path="res://assets/spells/fireball/FB003.png" id="4_2awth"]
 [ext_resource type="Texture2D" uid="uid://6sxfvm5unuiy" path="res://assets/spells/fireball/FB004.png" id="5_j4mmg"]
 [ext_resource type="Texture2D" uid="uid://6080ij4a775x" path="res://assets/spells/fireball/FB005.png" id="6_tbq2j"]
-[ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="7_7ksyb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_moyuw"]
 animations = [{
@@ -50,10 +49,7 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_l7oay")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-color = Color(0.81866, 0.331312, 0.122705, 1)
-energy = 0.25
-texture = ExtResource("7_7ksyb")
-texture_scale = 0.5
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Hitbox_body_entered"]
