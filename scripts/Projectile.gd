@@ -17,6 +17,7 @@ func _on_Hitbox_body_entered(body: Node2D):
 		body.take_damage(damage_amount)
 		print("Projectile hit enemy! Dealt ", damage_amount, " damage.") # For debugging
 		$AnimatedSprite2D.visible = false
+		$Area2D/CollisionShape2D.set_deferred("disabled", true)
 		await $AudioStreamPlayer.finished
 		queue_free() # Destroy the projectile after hitting an enemy
 	# Optional: You might want to also destroy on hitting walls, etc.
