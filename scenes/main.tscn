@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://deq7ih2we7etp"]
+[gd_scene load_steps=32 format=4 uid="uid://deq7ih2we7etp"]
 
 [ext_resource type="Script" uid="uid://bh4282gc2h8gg" path="res://scripts/MainUI.gd" id="1_x6egr"]
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="2_gsq8s"]
@@ -16,7 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="13_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://bvr3hkr8xhyti" path="res://assets/sounds/JDSherbert - Ambiences Music Pack - Bloodrat Sewers.mp3" id="13_trceg"]
 [ext_resource type="Script" uid="uid://byphw7fxtfc5g" path="res://scenes/flame_light.gd" id="14_jkv2x"]
-[ext_resource type="PackedScene" path="res://scenes/pickup.tscn" id="17_muem4"]
+[ext_resource type="Script" uid="uid://gntcooi0x4sk" path="res://scripts/AudioController.gd" id="17_dp3eg"]
+[ext_resource type="PackedScene" uid="uid://bykgunrj8362c" path="res://scenes/pickup.tscn" id="17_muem4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
 atlas = ExtResource("6_ya4ey")
@@ -285,14 +286,17 @@ shape = SubResource("RectangleShape2D_eb6dy")
 position = Vector2(2, 154)
 shape = SubResource("RectangleShape2D_eb6dy")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_trceg")
-autoplay = true
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.464266, 0.424403, 0.466905, 1)
 
 [node name="Pickup" parent="." instance=ExtResource("17_muem4")]
 position = Vector2(-157, 72)
+
+[node name="AudioController" type="Node" parent="."]
+script = ExtResource("17_dp3eg")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="AudioController"]
+stream = ExtResource("13_trceg")
+autoplay = true
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]

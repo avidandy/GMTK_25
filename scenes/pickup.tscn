@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bykgunrj8362c"]
+[gd_scene load_steps=7 format=3 uid="uid://bykgunrj8362c"]
 
 [ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="1_7cqbe"]
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="2_gyxxy"]
 [ext_resource type="Script" uid="uid://bc2chioblwbmd" path="res://scripts/pickup.gd" id="3_gyxxy"]
 [ext_resource type="Resource" uid="uid://c5nqqn58wk8f4" path="res://resources/fireball_ability.tres" id="4_4m06l"]
+[ext_resource type="AudioStream" uid="uid://cwo4yldyxen2v" path="res://assets/sounds/pickup.ogg" id="5_hqyie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4m06l"]
 
@@ -27,5 +28,8 @@ collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4m06l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hqyie")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
