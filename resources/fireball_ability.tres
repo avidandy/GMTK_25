@@ -6,8 +6,10 @@
 [resource]
 script = ExtResource("1_f0xpa")
 projectile_scene = ExtResource("1_qrt21")
+fireball_sound = "res://assets/sounds/fireball.wav"
 name = ""
 cooldown = 1.0
-p_level = 1
-a_level = 1
+p_level = 0
+a_level = 0
+fs_level = 0
 damage = 10

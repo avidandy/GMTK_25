@@ -4,10 +4,11 @@ class_name IceAbility
 @export var aoe_scene: PackedScene
 
 func activate(owner: Node2D):
-	var aoe = aoe_scene.instantiate()
-	aoe.global_position = owner.global_position
-	owner.add_child(aoe)
-	aoe.position = Vector2.ZERO
+	if a_level > 0:
+		var aoe = aoe_scene.instantiate()
+		aoe.global_position = owner.global_position
+		owner.add_child(aoe)
+		aoe.position = Vector2.ZERO
 
 #This is a specific instance of an ability that then overrides the empty one in ability.
 #This file is put on to a 'resource' which then allows you to set the stats which are available due to being extended at the start

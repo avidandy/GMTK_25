@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cey1agyjnf8ko"]
+
+[ext_resource type="Script" uid="uid://cxhsp4mtoa05g" path="res://scripts/firestorm_pickup.gd" id="1_dkkj1"]
+[ext_resource type="Resource" uid="uid://ce0aylc1srnto" path="res://resources/firestorm_ability.tres" id="2_nh0ww"]
+[ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="3_63bt6"]
+[ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="4_w42x4"]
+[ext_resource type="AudioStream" uid="uid://cwo4yldyxen2v" path="res://assets/sounds/pickup.ogg" id="5_wkpq5"]
+[ext_resource type="Texture2D" uid="uid://jgvdtf3y6cxk" path="res://assets/progress-bar-circle.png" id="6_syhx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m06l"]
+
+[node name="Pickup" type="Node2D"]
+script = ExtResource("1_dkkj1")
+level = ExtResource("2_nh0ww")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_63bt6")
+region_enabled = true
+region_rect = Rect2(128, 688, 16, 16)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+show_behind_parent = true
+energy = 0.5
+texture = ExtResource("4_w42x4")
+texture_scale = 0.1
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4m06l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wkpq5")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("6_syhx5")
+tint_under = Color(0.438657, 0.40277, 0.393086, 1)
+tint_progress = Color(0.373083, 0.743121, 0.376679, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
