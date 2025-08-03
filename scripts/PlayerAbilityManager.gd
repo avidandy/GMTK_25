@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 			
 		cooldowns[current_ability] -= delta
 	
-		if cooldowns[current_ability] <= 0.0:
-			current_ability.activate(get_parent())
-			cooldowns[current_ability] = current_ability.cooldown
+		if cooldowns[current_ability] <= 0.0 and Input.is_action_just_pressed("space"):
+				current_ability.activate(get_parent())
+				cooldowns[current_ability] = current_ability.cooldown
 		
