@@ -10,6 +10,8 @@ var lastDir: String = "front"
 @export var speed = 400
 @export var max_health: int = 100 # Add max health variable
 
+@export var mole_hit = "res://assets/sounds/mole_hit.mp3"
+
 @onready var ability_ui = $"../UICanvasLayer/Card"
 var block_input: = true
 
@@ -88,6 +90,7 @@ func update_animation(direction: Vector2):
 
 func take_damage(amount: int):
 	current_health -= amount
+	AudioController.play_sound(mole_hit, 1)
 	# You can add visual feedback here, e.g., modulate sprite color briefly
 	print("Player took ", amount, " damage. Current health: ", current_health) # For debugging
 
