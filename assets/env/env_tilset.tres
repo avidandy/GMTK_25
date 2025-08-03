@@ -2015,7 +2015,6 @@ texture = ExtResource("3_jxy06")
 1:3/0 = 0
 1:4/0 = 0
 1:5/0 = 0
-2:0/0 = 0
 2:1/0 = 0
 2:2/0 = 0
 2:3/0 = 0
@@ -2042,6 +2041,7 @@ texture = ExtResource("3_jxy06")
 6:2/0 = 0
 6:3/0 = 0
 6:4/0 = 0
+2:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ufc21"]
 texture = ExtResource("4_awa6s")
@@ -2067,7 +2067,7 @@ texture = ExtResource("4_awa6s")
 4:3/0 = 0
 
 [resource]
-occlusion_layer_0/light_mask = 1
+occlusion_layer_0/light_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_cpuq3")
 sources/2 = SubResource("TileSetAtlasSource_0dejm")
 sources/3 = SubResource("TileSetAtlasSource_2vh44")
