@@ -1,9 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=53 format=3 uid="uid://b6k27ng0hxp7c"]
+[gd_resource type="SpriteFrames" load_steps=62 format=3 uid="uid://b6k27ng0hxp7c"]
 
 [ext_resource type="Texture2D" uid="uid://deuvenli4sh74" path="res://assets/mole/Idle/Back.png" id="1_sk45o"]
 [ext_resource type="Texture2D" uid="uid://q8ub27eork4" path="res://assets/mole/Idle/Front.png" id="2_6sgw5"]
 [ext_resource type="Texture2D" uid="uid://bqug21xjmg0qf" path="res://assets/mole/Idle/Left.png" id="3_krqer"]
 [ext_resource type="Texture2D" uid="uid://250m1kmbvp6w" path="res://assets/mole/Idle/Right.png" id="4_bowdw"]
+[ext_resource type="Texture2D" uid="uid://c6gyq3taymuhg" path="res://assets/mole/spawn-death/Mole_Spawn.png" id="5_e7aq4"]
 [ext_resource type="Texture2D" uid="uid://dqv2apus07c2b" path="res://assets/mole/Move/Back.png" id="5_mupna"]
 [ext_resource type="Texture2D" uid="uid://hou70up47fb2" path="res://assets/mole/Move/Front.png" id="6_e7aq4"]
 [ext_resource type="Texture2D" uid="uid://d3nvphsc1o302" path="res://assets/mole/Move/Left.png" id="7_5q7vf"]
@@ -56,6 +57,38 @@ region = Rect2(16, 0, 16, 21)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6d4ft"]
 atlas = ExtResource("4_bowdw")
 region = Rect2(32, 0, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qqu"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(0, 0, 28, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d73x6"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(28, 0, 28, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iilmj"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(56, 0, 28, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foy67"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(84, 0, 28, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lri28"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(112, 0, 28, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpig8"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(140, 0, 28, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvuxs"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(168, 0, 28, 67)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leg8s"]
+atlas = ExtResource("5_e7aq4")
+region = Rect2(196, 0, 28, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t05q5"]
 atlas = ExtResource("5_mupna")
@@ -199,7 +232,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_back",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -213,7 +246,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_front",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -227,7 +260,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_left",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -241,7 +274,36 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle_right",
-"speed": 5.0
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_31qqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d73x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iilmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foy67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lri28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpig8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvuxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leg8s")
+}],
+"loop": true,
+"name": &"intro",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -270,7 +332,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_back",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -299,7 +361,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_front",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -328,7 +390,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_left",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -357,5 +419,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"move_right",
-"speed": 5.0
+"speed": 7.0
 }]

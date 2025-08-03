@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://deq7ih2we7etp"]
+[gd_scene load_steps=24 format=4 uid="uid://deq7ih2we7etp"]
 
 [ext_resource type="Script" uid="uid://bh4282gc2h8gg" path="res://scripts/MainUI.gd" id="1_x6egr"]
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="2_gsq8s"]
@@ -79,6 +79,12 @@ animations = [{
 "name": &"Flame",
 "speed": 8.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(20, 327)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(619, 20)
 
 [node name="Main" type="Node2D"]
 
@@ -201,5 +207,25 @@ sprite_frames = SubResource("SpriteFrames_dp3eg")
 animation = &"Flame"
 autoplay = "Flame"
 frame_progress = 0.242031
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-299, 0.5)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(300, 1)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, -156)
+shape = SubResource("RectangleShape2D_eb6dy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 154)
+shape = SubResource("RectangleShape2D_eb6dy")
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]
