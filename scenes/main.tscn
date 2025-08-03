@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=4 uid="uid://deq7ih2we7etp"]
+[gd_scene load_steps=28 format=4 uid="uid://deq7ih2we7etp"]
 
 [ext_resource type="Script" uid="uid://bh4282gc2h8gg" path="res://scripts/MainUI.gd" id="1_x6egr"]
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="2_gsq8s"]
 [ext_resource type="Theme" uid="uid://chesfyuq23agl" path="res://assets/themes/earthen_theme.tres" id="3_eb6dy"]
 [ext_resource type="Script" uid="uid://c2qqnlarhvvlp" path="res://scripts/ScoreLabel.gd" id="3_ivtf8"]
 [ext_resource type="PackedScene" uid="uid://5pb50itsa4y3" path="res://scenes/Player.tscn" id="4_iunyg"]
+[ext_resource type="Texture2D" uid="uid://unsr4wt2bbil" path="res://assets/Block Black.png" id="4_trceg"]
 [ext_resource type="Script" uid="uid://f40x85547uc7" path="res://scripts/AbilityUI.gd" id="5_choun"]
 [ext_resource type="Script" uid="uid://onaxruwxe5um" path="res://scripts/Spawner.gd" id="5_yahr5"]
 [ext_resource type="PackedScene" uid="uid://dinkb188g73ol" path="res://scenes/Enemy.tscn" id="6_25hhn"]
@@ -17,6 +18,11 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
 atlas = ExtResource("6_ya4ey")
 region = Rect2(144, 688, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trceg"]
+bg_color = Color(0, 0, 0, 0.352941)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_choun"]
 atlas = ExtResource("9_85g3d")
@@ -101,41 +107,44 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_top = 40.0
-offset_bottom = 40.0
+offset_top = 10.0
+offset_bottom = 10.0
 grow_horizontal = 2
-pivot_offset = Vector2(20, 20)
-size_flags_horizontal = 3
-size_flags_vertical = 3
 theme = ExtResource("3_eb6dy")
 
 [node name="PlayerHealthBar" type="TextureProgressBar" parent="UICanvasLayer/HealthBarContainer"]
-modulate = Color(1, 1, 1, 0.392157)
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -150.0
-offset_right = 150.0
-offset_bottom = 20.0
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 15.0
 grow_horizontal = 2
 pivot_offset = Vector2(150, 10)
 value = 100.0
 nine_patch_stretch = true
+texture_under = ExtResource("4_trceg")
 texture_progress = ExtResource("2_gsq8s")
 
 [node name="HealthLabel" type="RichTextLabel" parent="UICanvasLayer/HealthBarContainer"]
+clip_contents = false
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -50.0
+offset_top = 1.0
 offset_right = 50.0
-offset_bottom = 20.0
+offset_bottom = 16.0
 grow_horizontal = 2
-pivot_offset = Vector2(50, 10)
+grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Health"
+text = "100
+"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
@@ -146,28 +155,40 @@ layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 40.0
+offset_top = 25.0
+offset_bottom = 25.0
 grow_horizontal = 2
 theme = ExtResource("3_eb6dy")
 
+[node name="ScoreTitle" type="RichTextLabel" parent="UICanvasLayer/ScoreContainer"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 10.0
+offset_right = 32.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 10
+text = "Score"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ScoreLabel" type="RichTextLabel" parent="UICanvasLayer/ScoreContainer"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -32.0
-offset_top = 52.0
+offset_top = 20.0
 offset_right = 32.0
-offset_bottom = 68.0
+offset_bottom = 36.0
 grow_horizontal = 2
-grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 10
-text = "Score: 0"
+text = "0"
 horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("3_ivtf8")
 
 [node name="TextureRect" type="TextureRect" parent="UICanvasLayer"]
@@ -181,6 +202,17 @@ ability_regions = {
 2: Rect2(144, 688, 16, 16),
 4: Rect2(4, 4, 16, 16)
 }
+
+[node name="PanelContainer" type="PanelContainer" parent="UICanvasLayer"]
+z_index = -1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_right = 136.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trceg")
 
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("5_yahr5")

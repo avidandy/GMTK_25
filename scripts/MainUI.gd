@@ -11,11 +11,11 @@ func _ready():
 		# Ensure initial state is set
 		player_health_bar.max_value = player_node.max_health
 		player_health_bar.value = player_node.current_health
-		health_label.text = str(player_node.current_health) + "/" + str(player_node.max_health)
+		health_label.text = str(player_node.current_health)
 	else:
 		print("UI: Player node not found. Health bar will not update.")
 
 func _on_player_health_changed(current_hp: int, max_hp: int):
 	player_health_bar.max_value = max_hp
 	player_health_bar.value = current_hp
-	health_label.text = str(current_hp) + "/" + str(max_hp)
+	health_label.text = str(current_hp)
