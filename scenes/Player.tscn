@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="7_cw2d6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
-size = Vector2(30, 30)
+size = Vector2(25, 25)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v6fml"]
 radius = 25.0
