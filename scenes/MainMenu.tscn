@@ -59,10 +59,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Play"
 
-[node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Options"
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(369, 112)
 scale = Vector2(0.84, 0.84)
@@ -78,4 +74,3 @@ region_enabled = true
 region_rect = Rect2(115.793, 19.7841, 18.4592, 34.1923)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

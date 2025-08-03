@@ -7,6 +7,8 @@ func _ready():
 
 func _on_restart_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	AudioController.play_sound("res://assets/sounds/click1.wav", 1)
 
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	AudioController.play_sound("res://assets/sounds/click1.wav", 1)
