@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfcbo3fu7ivv6"]
+[gd_scene load_steps=7 format=3 uid="uid://bfcbo3fu7ivv6"]
 
 [ext_resource type="Script" uid="uid://c85nfmt6sbdmo" path="res://scripts/aoe.gd" id="1_ieuwj"]
+[ext_resource type="Resource" uid="uid://mhwqayg4iye" path="res://resources/ice_ability.tres" id="2_bss76"]
 [ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="2_jlujt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bss76"]
@@ -22,6 +23,7 @@ animations = [{
 
 [node name="Aoe_Scene" type="Node2D"]
 script = ExtResource("1_ieuwj")
+level = ExtResource("2_bss76")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = -1

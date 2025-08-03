@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var level: FirestormAbility
+@export var level: IceAbility
 @export var pickup_sound = "res://assets/sounds/pickup.ogg"
 
 @export_group("Pickup Settings")
@@ -25,10 +25,10 @@ func _process(delta):
 	progress_bar.value = (timer.time_left/lifetime) * 100
 	
 func _on_body_entered(body):
-	level.fs_level += 1
-	print(level.fs_level)
+	level.a_level += 1
+	print(level.a_level)
 	timer.stop()
-	MainUi.display_message(Vector2(150, 300), "Your Fire Storm spell has leveled up to level " + str(level.p_level))
+	MainUi.display_message(Vector2(150, 300), "Your Ice Storm spell has leveled up to level " + str(level.p_level))
 	AudioController.play_sound(pickup_sound, 1)
 	queue_free()
 

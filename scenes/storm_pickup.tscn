@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cey1agyjnf8ko"]
 
 [ext_resource type="Script" uid="uid://cxhsp4mtoa05g" path="res://scripts/firestorm_pickup.gd" id="1_dkkj1"]
-[ext_resource type="Resource" uid="uid://ce0aylc1srnto" path="res://resources/firestorm_ability.tres" id="2_nh0ww"]
+[ext_resource type="Resource" uid="uid://mhwqayg4iye" path="res://resources/ice_ability.tres" id="2_nh0ww"]
 [ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="3_63bt6"]
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="4_w42x4"]
 [ext_resource type="AudioStream" uid="uid://cwo4yldyxen2v" path="res://assets/sounds/pickup.ogg" id="5_wkpq5"]
@@ -16,7 +16,7 @@ level = ExtResource("2_nh0ww")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_63bt6")
 region_enabled = true
-region_rect = Rect2(128, 688, 16, 16)
+region_rect = Rect2(64, 688, 16, 16)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 show_behind_parent = true
