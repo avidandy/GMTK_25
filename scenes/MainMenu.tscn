@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://33b08le033vl"]
+[gd_scene load_steps=7 format=3 uid="uid://33b08le033vl"]
 
 [ext_resource type="Theme" uid="uid://chesfyuq23agl" path="res://assets/themes/earthen_theme.tres" id="1_2wh52"]
 [ext_resource type="Script" uid="uid://1y7o4jqhl1ft" path="res://scripts/MainMenu.gd" id="1_yqorp"]
 [ext_resource type="FontFile" uid="uid://c8n5pnyptug83" path="res://assets/fonts/PeaberryBase.ttf" id="3_ow34m"]
 [ext_resource type="Texture2D" uid="uid://c6gyq3taymuhg" path="res://assets/mole/spawn-death/Mole_Spawn.png" id="4_l72w3"]
 [ext_resource type="Texture2D" uid="uid://cutdb0sxr0i81" path="res://assets/mole/spawn-death/Mole_Death.png" id="5_826wr"]
+[ext_resource type="AudioStream" uid="uid://bivfndkx8n1so" path="res://assets/sounds/cave themeb4.ogg" id="6_826wr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -72,5 +73,9 @@ scale = Vector2(0.888889, 0.888889)
 texture = ExtResource("5_826wr")
 region_enabled = true
 region_rect = Rect2(115.793, 19.7841, 18.4592, 34.1923)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_826wr")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
