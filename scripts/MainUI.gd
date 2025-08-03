@@ -19,3 +19,14 @@ func _on_player_health_changed(current_hp: int, max_hp: int):
 	player_health_bar.max_value = max_hp
 	player_health_bar.value = current_hp
 	health_label.text = str(current_hp)
+
+func display_message(position, message):
+	var ui_node = get_tree().get_root().get_node("Main/UICanvasLayer")
+	var main_theme = load("res://assets/themes/earthen_theme.tres")
+	var label = Label.new()
+	label.text = message
+	label.position = position
+	label.theme = main_theme
+	ui_node.add_child(label)
+	await get_tree().create_timer(1.0).timeout
+	label.queue_free()

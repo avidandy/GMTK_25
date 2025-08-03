@@ -28,6 +28,7 @@ func _on_body_entered(body):
 	level.p_level += 1
 	print(level.p_level)
 	timer.stop()
+	MainUi.display_message(Vector2(250, 300), "Your spell has leveled up to level " + str(level.p_level))
 	AudioController.play_sound(pickup_sound, 1)
 	queue_free()
 
