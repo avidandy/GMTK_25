@@ -3,7 +3,34 @@ extends Node2D
 @export var level: FireballAbility
 @export var pickup_sound = "res://assets/sounds/pickup.ogg"
 
+@export_group("Pickup Settings")
+@export var lifetime: float = 10.0 # The amount of time before the pickup disappears.
+
+@onready var timer: Timer = $Timer
+@onready var progress_bar: TextureProgressBar = $ProgressBar
+
+func _ready():
+	# Configure the timer and connect its timeout signal
+	timer.wait_time = lifetime
+	timer.start()
+
+	# Hide the progress bar initially
+	progress_bar.hide()
+	
+	if get_parent() is Node2D:
+		progress_bar.show()
+		
+func _process(delta):
+	# Update the progress bar value based on the timer's remaining time
+	progress_bar.value = (timer.time_left/lifetime) * 100
+	
 func _on_body_entered(body):
 	level.p_level += 1
+	print(level.p_level)
+	timer.stop()
 	AudioController.play_sound(pickup_sound)
+	queue_free()
+
+# This function is called when the timer runs out
+func _on_timer_timeout():
 	queue_free()
