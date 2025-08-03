@@ -1,7 +1,7 @@
 # scripts/Enemy.gd
 extends CharacterBody2D
 
-@export var speed: float = 100.0 # Base enemy movement speed
+@export var speed: float = 150.0 # Base enemy movement speed
 @export var health: int = 10 # Health for each enemy instance
 @export var score: int = 10 # Amount rewarded on enemy death
 

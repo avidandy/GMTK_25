@@ -230,6 +230,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_trceg")
 [node name="Spawner" type="Node2D" parent="."]
 script = ExtResource("5_yahr5")
 enemy_scene = ExtResource("6_25hhn")
+spawn_interval = 0.75
 spawn_radius = 400.0
 max_enemies_on_screen = 1000
 

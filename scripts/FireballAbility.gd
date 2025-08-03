@@ -57,6 +57,10 @@ func activate(owner: Node2D):
 	if p_level > 8:
 		GameController.level = p_level
 		GameController.increase_damage()
+	if p_level > 10:
+		ScoreController.increase_score(100)
+	if p_level > 15:
+		ScoreController.increase_score(250)
 		
 
 #This is a specific instance of an ability that then overrides the empty one in ability.
