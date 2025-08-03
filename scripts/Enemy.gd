@@ -20,6 +20,10 @@ extends CharacterBody2D
 @export var avoidance_radius: float = 50.0 # How close other enemies need to be to trigger avoidance
 @export var avoidance_strength: float = 0.3 # How strongly this enemy repels others (0.0 to 1.0, 0.3 for weak force)
 
+@export_group("Pickup Drop Settings") # Updated: Group for pickup settings
+@export var pickup_scenes: Array[PackedScene] # UPDATED: An array to hold multiple pickup scenes
+@export var drop_chance: float = 0.5 # Chance (0.0 to 1.0) for the enemy to drop a pickup
+
 @onready var attack_timer = $AttackTimer # Reference to the AttackTimer node
 
 @onready var sprite :=$Sprite2D
@@ -125,6 +129,16 @@ func take_damage(amount: int):
 	# You can add visual feedback for damage here (e.g., flash red)
 	if health <= 0:
 		ScoreController.increase_score(score)
+		
+				# UPDATED: Random pickup drop from an array
+		if randf() <= drop_chance:
+			if not pickup_scenes.is_empty():
+				var chosen_scene = pickup_scenes[randi() % pickup_scenes.size()]
+				var pickup_instance = chosen_scene.instantiate()
+				get_parent().add_child(pickup_instance)
+				pickup_instance.global_position = global_position
+				print("Enemy dropped a random pickup!")
+				
 		queue_free() # Remove the enemy when it runs out of health
 
 # --- Attack Timer Signal ---

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bykgunrj8362c"]
+[gd_scene load_steps=8 format=3 uid="uid://bykgunrj8362c"]
 
 [ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="1_7cqbe"]
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="2_gyxxy"]
