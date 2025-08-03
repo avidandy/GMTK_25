@@ -21,8 +21,7 @@ extends CharacterBody2D
 @export var avoidance_strength: float = 0.3 # How strongly this enemy repels others (0.0 to 1.0, 0.3 for weak force)
 
 @export_group("Pickup Drop Settings") # Updated: Group for pickup settings
-@export var pickup_scenes: Array[PackedScene] # UPDATED: An array to hold multiple pickup scenes
-@export var drop_chance: float = 0.5 # Chance (0.0 to 1.0) for the enemy to drop a pickup
+@export var drop_items: Array[Dictionary] = []
 
 @export_group("Sprite Randomization") # NEW: Group for sprite randomization settings
 @export var spritesheet: Texture2D # The Texture containing the enemy sprites
@@ -146,14 +145,18 @@ func take_damage(amount: int):
 		AudioController.play_sound(death_sound, 1)
 		ScoreController.increase_score(score)
 		
-				# UPDATED: Random pickup drop from an array
-		if randf() <= drop_chance:
-			if not pickup_scenes.is_empty():
-				var chosen_scene = pickup_scenes[randi() % pickup_scenes.size()]
-				var pickup_instance = chosen_scene.instantiate()
+		var random = randf()
+		
+		# UPDATED: Drop a random pickup based on individual chances
+		for item in drop_items:
+			var item_scene = item.get("scene")
+			var item_chance = item.get("chance")
+			if random <= item_chance and item_scene:
+				var pickup_instance = item_scene.instantiate()
 				get_parent().add_child(pickup_instance)
 				pickup_instance.global_position = global_position
-				print("Enemy dropped a random pickup!")
+				print("Enemy dropped a pickup with a custom chance!")
+				break # Drop only one item per enemy
 				
 		queue_free() # Remove the enemy when it runs out of health
 

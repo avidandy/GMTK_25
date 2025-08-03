@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dinkb188g73ol"]
+[gd_scene load_steps=7 format=3 uid="uid://dinkb188g73ol"]
 
 [ext_resource type="Script" uid="uid://boai2ycf1i8hx" path="res://scripts/Enemy.gd" id="1_55jtl"]
 [ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="2_55jtl"]
 [ext_resource type="PackedScene" uid="uid://bykgunrj8362c" path="res://scenes/pickup.tscn" id="2_ft8do"]
+[ext_resource type="PackedScene" path="res://scenes/storm_pickup.tscn" id="3_5wwv6"]
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="3_mpr68"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
@@ -15,8 +16,13 @@ script = ExtResource("1_55jtl")
 speed = 25.0
 aggro_distance = 100.0
 player_stop_distance = 30.0
-pickup_scenes = Array[PackedScene]([ExtResource("2_ft8do")])
-drop_chance = 0.1
+drop_items = Array[Dictionary]([{
+"chance": 0.1,
+"scene": ExtResource("2_ft8do")
+}, {
+"chance": 0.01,
+"scene": ExtResource("3_5wwv6")
+}])
 spritesheet = ExtResource("2_55jtl")
 sprite_regions = Array[Rect2]([Rect2(160, 496, 16, 16), Rect2(176, 496, 16, 16), Rect2(192, 512, 16, 16), Rect2(368, 512, 16, 16), Rect2(368, 480, 16, 16)])
 

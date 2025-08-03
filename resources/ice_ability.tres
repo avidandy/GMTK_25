@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IceAbility" load_steps=3 format=3 uid="uid://dh0tfsu4exwqt"]
+[gd_resource type="Resource" script_class="IceAbility" load_steps=3 format=3 uid="uid://mhwqayg4iye"]
 
 [ext_resource type="PackedScene" uid="uid://bfcbo3fu7ivv6" path="res://scenes/aoe_scene.tscn" id="1_kjj68"]
 [ext_resource type="Script" uid="uid://wut2hk8lb8gv" path="res://scripts/IceAbility.gd" id="1_pvy46"]
@@ -9,7 +9,7 @@ aoe_scene = ExtResource("1_kjj68")
 name = ""
 cooldown = 5.0
 p_level = 0
-a_level = 0
+a_level = 1
 fs_level = 0
 damage = 10
 metadata/_custom_type_script = "uid://wut2hk8lb8gv"
