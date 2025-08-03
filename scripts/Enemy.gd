@@ -24,6 +24,10 @@ extends CharacterBody2D
 @export var pickup_scenes: Array[PackedScene] # UPDATED: An array to hold multiple pickup scenes
 @export var drop_chance: float = 0.5 # Chance (0.0 to 1.0) for the enemy to drop a pickup
 
+@export_group("Sprite Randomization") # NEW: Group for sprite randomization settings
+@export var spritesheet: Texture2D # The Texture containing the enemy sprites
+@export var sprite_regions: Array[Rect2] # The list of Rectangles defining the regions on the spritesheet
+
 @onready var attack_timer = $AttackTimer # Reference to the AttackTimer node
 
 @onready var sprite :=$Sprite2D
@@ -51,6 +55,12 @@ func _ready():
 	# Set attack timer wait time from export variable
 	attack_timer.wait_time = attack_interval
 
+	# NEW: Set up the sprite with a random region from the spritesheet
+	if spritesheet and not sprite_regions.is_empty():
+		sprite.texture = spritesheet
+		sprite.region_enabled = true
+		sprite.region_rect = sprite_regions[randi() % sprite_regions.size()]
+		
 func _physics_process(delta: float) -> void:
 	if is_hit:
 		return

@@ -17,6 +17,8 @@ aggro_distance = 100.0
 player_stop_distance = 30.0
 pickup_scenes = Array[PackedScene]([ExtResource("2_ft8do")])
 drop_chance = 0.1
+spritesheet = ExtResource("2_55jtl")
+sprite_regions = Array[Rect2]([Rect2(160, 496, 16, 16), Rect2(176, 496, 16, 16), Rect2(192, 512, 16, 16), Rect2(368, 512, 16, 16), Rect2(368, 480, 16, 16)])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_55jtl")
@@ -27,7 +29,7 @@ wait_time = 0.5
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_55jtl")
 region_enabled = true
-region_rect = Rect2(176, 496, 16, 16)
+region_rect = Rect2(368, 480, 16, 16)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.768627, 0.372549, 0.6, 1)
