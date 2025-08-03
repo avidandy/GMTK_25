@@ -11,5 +11,6 @@ name = ""
 cooldown = 3.0
 p_level = 1
 a_level = 1
+fs_level = 1
 damage = 10
 metadata/_custom_type_script = "uid://w4cmj22pp2rb"
