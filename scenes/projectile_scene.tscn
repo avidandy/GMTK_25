@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://38kd01ktlmub"]
+[gd_scene load_steps=11 format=3 uid="uid://38kd01ktlmub"]
 
 [ext_resource type="Script" uid="uid://c1djg2ga6m33h" path="res://scripts/Projectile.gd" id="1_xymdh"]
 [ext_resource type="Texture2D" uid="uid://c7o5dfsxolboo" path="res://assets/spells/fireball/FB001.png" id="2_l7oay"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://6sxfvm5unuiy" path="res://assets/spells/fireball/FB004.png" id="5_j4mmg"]
 [ext_resource type="Texture2D" uid="uid://6080ij4a775x" path="res://assets/spells/fireball/FB005.png" id="6_tbq2j"]
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="7_7ksyb"]
+[ext_resource type="Script" uid="uid://mrxjpc334djo" path="res://scripts/GameController.gd" id="8_2awth"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_moyuw"]
 animations = [{
@@ -58,5 +59,8 @@ color = Color(0.901432, 0.522965, 0.286912, 1)
 energy = 0.2
 texture = ExtResource("7_7ksyb")
 texture_scale = 0.5
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("8_2awth")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Hitbox_body_entered"]

@@ -7,6 +7,7 @@ extends Node2D
 @export var max_enemies_on_screen: int = 50 # Limit concurrent enemies
 
 @onready var spawn_timer = $SpawnTimer # Reference to the Timer node
+
 var player: Node2D # Reference to the player node
 
 func _ready():

@@ -3,7 +3,7 @@ extends Node2D
 
 @export var speed := 500.0 # From your Projectile.gd
 @export var direction := Vector2.RIGHT # From your Projectile.gd
-@export var damage_amount: int = 1 # Damage this projectile deals
+@export var damage_amount: int = DamageController.damage_amount
 
 func _process(delta: float) -> void:
 	global_position += direction.normalized() * speed * delta

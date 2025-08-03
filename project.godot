@@ -21,6 +21,7 @@ config/icon="res://assets/icon.svg"
 ScoreController="*res://scripts/ScoreController.gd"
 AudioController="*res://scripts/AudioController.gd"
 MainUi="*res://scripts/MainUI.gd"
+GameController="*res://scripts/GameController.gd"
 
 [display]
 
