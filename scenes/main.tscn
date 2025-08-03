@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://deq7ih2we7etp"]
+[gd_scene load_steps=31 format=4 uid="uid://deq7ih2we7etp"]
 
 [ext_resource type="Script" uid="uid://bh4282gc2h8gg" path="res://scripts/MainUI.gd" id="1_x6egr"]
 [ext_resource type="Texture2D" uid="uid://by6xyoiojiif6" path="res://assets/Block Green.png" id="2_gsq8s"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="13_a8y0u"]
 [ext_resource type="AudioStream" uid="uid://bvr3hkr8xhyti" path="res://assets/sounds/JDSherbert - Ambiences Music Pack - Bloodrat Sewers.mp3" id="13_trceg"]
 [ext_resource type="Script" uid="uid://byphw7fxtfc5g" path="res://scenes/flame_light.gd" id="14_jkv2x"]
+[ext_resource type="PackedScene" uid="uid://bnxnvvpocmjnp" path="res://scenes/pickup.tscn" id="17_muem4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
 atlas = ExtResource("6_ya4ey")
@@ -193,9 +194,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_ivtf8")
 
-[node name="TextureRect" type="TextureRect" parent="UICanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Card" type="TextureRect" parent="UICanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
 script = ExtResource("5_choun")
 ability_atlas = SubResource("AtlasTexture_dp3eg")
 ability_regions = {
@@ -282,5 +291,8 @@ autoplay = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.464266, 0.424403, 0.466905, 1)
+
+[node name="Pickup" parent="." instance=ExtResource("17_muem4")]
+position = Vector2(-157, 72)
 
 [connection signal="timeout" from="Spawner/SpawnTimer" to="Spawner" method="_on_SpawnTimer_timeout"]

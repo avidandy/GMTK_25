@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://bnxnvvpocmjnp"]
+
+[ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="1_7cqbe"]
+[ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="2_gyxxy"]
+[ext_resource type="Script" uid="uid://bc2chioblwbmd" path="res://scripts/pickup.gd" id="3_gyxxy"]
+[ext_resource type="Resource" uid="uid://c5nqqn58wk8f4" path="res://resources/fireball_ability.tres" id="4_4m06l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m06l"]
+
+[node name="Pickup" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7cqbe")
+region_enabled = true
+region_rect = Rect2(80, 688, 16, 16)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+show_behind_parent = true
+energy = 0.5
+texture = ExtResource("2_gyxxy")
+texture_scale = 0.1
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 9
+script = ExtResource("3_gyxxy")
+level = ExtResource("4_4m06l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4m06l")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

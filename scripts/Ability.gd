@@ -4,7 +4,9 @@ class_name Ability
 
 @export var name: String
 @export var cooldown: float
-@export var level: int = 1
+@export var p_level: int = 1
+@export var a_level: int = 1
+@export var damage: int = 10
 
 
 func activate(owner : Node2D) -> void:

@@ -10,7 +10,7 @@ var lastDir: String = "front"
 @export var speed = 400
 @export var max_health: int = 100 # Add max health variable
 
-@onready var ability_ui = $"../UICanvasLayer/TextureRect"
+@onready var ability_ui = $"../UICanvasLayer/Card"
 var block_input: = true
 
 var current_health: int = max_health: # Current health variable
@@ -102,4 +102,4 @@ func _input(event):
 		
 	if event.is_action_pressed("ui_page_up"):
 		var random = ability_ui.ability_regions.keys().pick_random()
-		$"../UICanvasLayer/TextureRect".set_ability_type(random)
+		$"../UICanvasLayer/Card".set_ability_type(random)

@@ -8,4 +8,4 @@ script = ExtResource("1_f0xpa")
 projectile_scene = ExtResource("1_qrt21")
 name = ""
 cooldown = 1.0
-level = 2
+level = 1
