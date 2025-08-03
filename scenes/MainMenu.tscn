@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://33b08le033vl"]
+[gd_scene load_steps=6 format=3 uid="uid://33b08le033vl"]
 
 [ext_resource type="Theme" uid="uid://chesfyuq23agl" path="res://assets/themes/earthen_theme.tres" id="1_2wh52"]
 [ext_resource type="Script" uid="uid://1y7o4jqhl1ft" path="res://scripts/MainMenu.gd" id="1_yqorp"]
 [ext_resource type="FontFile" uid="uid://c8n5pnyptug83" path="res://assets/fonts/PeaberryBase.ttf" id="3_ow34m"]
+[ext_resource type="Texture2D" uid="uid://c6gyq3taymuhg" path="res://assets/mole/spawn-death/Mole_Spawn.png" id="4_l72w3"]
+[ext_resource type="Texture2D" uid="uid://cutdb0sxr0i81" path="res://assets/mole/spawn-death/Mole_Death.png" id="5_826wr"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -33,7 +35,7 @@ offset_right = 139.0
 offset_bottom = 136.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("3_ow34m")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 54
 text = "Holy Moley"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -60,6 +62,20 @@ text = "Play"
 [node name="OptionsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(369, 112)
+scale = Vector2(0.84, 0.84)
+texture = ExtResource("4_l72w3")
+region_enabled = true
+region_rect = Rect2(1.81762, 32, 25.7976, 35)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(220, 110)
+scale = Vector2(0.888889, 0.888889)
+texture = ExtResource("5_826wr")
+region_enabled = true
+region_rect = Rect2(115.793, 19.7841, 18.4592, 34.1923)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
