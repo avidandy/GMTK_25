@@ -18,7 +18,7 @@
 [ext_resource type="Script" uid="uid://byphw7fxtfc5g" path="res://scenes/flame_light.gd" id="14_jkv2x"]
 [ext_resource type="Script" uid="uid://gntcooi0x4sk" path="res://scripts/AudioController.gd" id="17_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://bykgunrj8362c" path="res://scenes/pickup.tscn" id="17_muem4"]
-[ext_resource type="PackedScene" uid="uid://cey1agyjnf8ko" path="res://scenes/storm_pickup.tscn" id="19_0ld40"]
+[ext_resource type="PackedScene" path="res://scenes/storm_pickup.tscn" id="19_0ld40"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dp3eg"]
 atlas = ExtResource("6_ya4ey")

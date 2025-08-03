@@ -30,6 +30,10 @@ extends CharacterBody2D
 
 @onready var attack_timer = $AttackTimer # Reference to the AttackTimer node
 
+@export_group("Sounds")
+@export var hit_sound = "res://assets/sounds/monster_hit.wav"
+@export var death_sound = "res://assets/sounds/monster_death.wav"
+
 @onready var sprite :=$Sprite2D
 var direction:= Vector2.ZERO
 
@@ -129,6 +133,7 @@ func _physics_process(delta: float) -> void:
 func take_damage(amount: int):
 	if is_hit: return
 
+	AudioController.play_sound(hit_sound, -5)
 	health -= amount
 	is_hit = true
 	sprite.modulate = Color(1.0, 0.4, 0.4)
@@ -138,6 +143,7 @@ func take_damage(amount: int):
 	is_hit = false
 	# You can add visual feedback for damage here (e.g., flash red)
 	if health <= 0:
+		AudioController.play_sound(death_sound, 1)
 		ScoreController.increase_score(score)
 		
 				# UPDATED: Random pickup drop from an array
