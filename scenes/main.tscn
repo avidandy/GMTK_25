@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://onaxruwxe5um" path="res://scripts/Spawner.gd" id="5_yahr5"]
 [ext_resource type="PackedScene" uid="uid://dinkb188g73ol" path="res://scenes/Enemy.tscn" id="6_25hhn"]
 [ext_resource type="Texture2D" uid="uid://qk2n7tpffxxf" path="res://assets/env/The_Roguelike_1-15-7_Alpha.png" id="6_ya4ey"]
-[ext_resource type="Script" path="res://scripts/ScoreController.gd" id="7_jbhub"]
+[ext_resource type="Script" uid="uid://bjp65p3yoyjft" path="res://scripts/ScoreController.gd" id="7_jbhub"]
 [ext_resource type="TileSet" uid="uid://cix3ph2khsid7" path="res://assets/env/env_tilset.tres" id="8_tipki"]
 [ext_resource type="Texture2D" uid="uid://cplubwfj1ah2d" path="res://assets/underground/[UPDATE_3] Contents/Stone Brazier/StoneBrazier_A.png" id="9_85g3d"]
 [ext_resource type="Texture2D" uid="uid://hxouahvsbyyf" path="res://assets/light.png" id="13_a8y0u"]

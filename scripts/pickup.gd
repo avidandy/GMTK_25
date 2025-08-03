@@ -28,7 +28,7 @@ func _on_body_entered(body):
 	level.p_level += 1
 	print(level.p_level)
 	timer.stop()
-	AudioController.play_sound(pickup_sound)
+	AudioController.play_sound(pickup_sound, 1)
 	queue_free()
 
 # This function is called when the timer runs out

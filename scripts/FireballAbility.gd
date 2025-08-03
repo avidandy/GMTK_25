@@ -7,7 +7,7 @@ class_name FireballAbility
 func activate(owner: Node2D):
 	if p_level > 0:
 		var projectile1 = projectile_scene.instantiate()
-		AudioController.play_sound(fireball_sound)
+		AudioController.play_sound(fireball_sound, -5)
 		projectile1.global_position = owner.global_position
 		projectile1.direction = Vector2.UP
 		owner.get_parent().add_child(projectile1)
