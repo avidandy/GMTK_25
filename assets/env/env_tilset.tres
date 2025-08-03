@@ -2067,6 +2067,7 @@ texture = ExtResource("4_awa6s")
 4:3/0 = 0
 
 [resource]
+occlusion_layer_0/light_mask = 1
 sources/1 = SubResource("TileSetAtlasSource_cpuq3")
 sources/2 = SubResource("TileSetAtlasSource_0dejm")
 sources/3 = SubResource("TileSetAtlasSource_2vh44")
